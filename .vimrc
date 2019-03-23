@@ -64,7 +64,7 @@ let NERDTreeShowHidden=1
 
 "function! Smart_TabComplete()
 "  let line = getline('.')                         " current line
-"  
+"
 "  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
 "                                                  " line to one character right
 "                                                  " of the cursor
@@ -107,13 +107,15 @@ if executable('coffeetags')
 endif
 
 let vimlocal = expand("%:p:h") . "/.vimrc.local"
-if filereadable(vimlocal) 
+if filereadable(vimlocal)
   execute 'source '.vimlocal
 endif
 map <S-A-l> :NERDTreeFind<CR>
 imap jj <Esc>
-nmap oo o<Esc>k
-nmap OO O<Esc>j
+nmap <Enter> o<Esc>k
+nmap <S-Enter> O<Esc>j
+imap ww <Esc>:w<CR>
+nmap ZW :w<CR>
 au GUIEnter * simalt ~x
 nmap <F9> :mksession! <cr> " Quick write session with F9
 nmap <F10> :source Session.vim <cr> " And load session with F10
@@ -193,3 +195,7 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 " map <Leader>j <Plug>(easymotion-j)
 " map <Leader>k <Plug>(easymotion-k)
+imap <c-s> <Esc>:w<Enter>
+call plug#begin('~/vimfiles/plugged')
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+call plug#end()
