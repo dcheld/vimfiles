@@ -1,3 +1,6 @@
+" Jump to a subject map for no-englesh keyboards
+:map go <C-]>
+
 " Disable beep
 set noerrorbells visualbell t_vb=
 if has('autocmd')
@@ -114,8 +117,6 @@ map <S-A-l> :NERDTreeFind<CR>
 imap jj <Esc>
 nmap <Enter> o<Esc>k
 nmap <S-Enter> O<Esc>j
-imap ww <Esc>:w<CR>
-nmap ZW :w<CR>
 au GUIEnter * simalt ~x
 nmap <F9> :mksession! <cr> " Quick write session with F9
 nmap <F10> :source Session.vim <cr> " And load session with F10
@@ -195,7 +196,48 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 " map <Leader>j <Plug>(easymotion-j)
 " map <Leader>k <Plug>(easymotion-k)
-imap <c-s> <Esc>:w<Enter>
+imap <c-s> <Esc>:w<CR>
+nmap <Leader>w :w<CR>
 call plug#begin('~/vimfiles/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'morhetz/gruvbox' " ColorScheme
+"Plug 'scrooloose/nerdtree' " Filesystem explorer
+Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
+"Plug 'tpope/vim-commentary' " Use gcc to comment out a line
+"Plug 'vim-airline/vim-airline' "Show statusline at bottom
+"Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
+"Plug 'tpope/vim-fugitive' "Git wrapper
+"Plug 'airblade/vim-gitgutter' "Show git diff
+"Plug 'ntpeters/vim-better-whitespace' "Highlighting withspaces in normal mode
+"Plug 'Raimondi/delimitMate' "Automatic closing 'tag'
+"Plug 'vim-syntastic/syntastic' "Syntax checks"
+"Plug 'majutsushi/tagbar' "display tags in a separeted windows calling TagbarToggle
+"Plug 'sheerun/vim-polyglot' "Languages packs
+"Plug 'w0rp/ale' "Asynchronous linting/fixing
+"Plug 'SirVer/ultisnips' "snippets for vim
+"Plug 'fatih/vim-go' ,{'do': ':GoInstallBinaries'} "Go development Plugin
 call plug#end()
+
+nmap <A-j> ddp
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+nnoremap <silent> <S-t> :tabnew<CR>
+
+" Abreviations to prevent miss typings like :W
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+noremap <Leader>d "_d
+noremap <Leader>D "_D
