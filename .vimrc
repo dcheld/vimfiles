@@ -197,7 +197,7 @@ let g:EasyMotion_smartcase = 1
 " map <Leader>j <Plug>(easymotion-j)
 " map <Leader>k <Plug>(easymotion-k)
 imap <c-s> <Esc>:w<CR>
-nmap <Leader>w :w<CR>
+nmap <c-s> :w<CR>
 call plug#begin('~/vimfiles/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'morhetz/gruvbox' " ColorScheme
@@ -221,7 +221,8 @@ call plug#end()
 nmap <A-j> ddp
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> <C-t> :tabnew<CR>
+nnoremap <silent> <C-T> :tabclose<CR>
 
 " Abreviations to prevent miss typings like :W
 cnoreabbrev W! w!
