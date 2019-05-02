@@ -226,7 +226,8 @@ call plug#end()
 :nnoremap <A-j> ddp
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+nnoremap <silent> <C-t> :tabnew<CR>
+nnoremap <silent> <C-T> :tabclose<CR>
 
 " Abreviations to prevent miss typings like :W
 cnoreabbrev W! w!
