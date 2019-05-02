@@ -114,7 +114,6 @@ if filereadable(vimlocal)
   execute 'source '.vimlocal
 endif
 map <S-A-l> :NERDTreeFind<CR>
-imap jj <Esc>
 nmap <Enter> o<Esc>k
 nmap <S-Enter> O<Esc>j
 au GUIEnter * simalt ~x
@@ -192,17 +191,18 @@ set cmdheight=2
 " Need one more keystroke, but on average, it may be more comfortable.
 " nmap s <Plug>(easymotion-overwin-f2)
 " Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
 imap <c-s> <Esc>:w<CR>
-nmap <Leader>w :w<CR>
+nmap <c-s> :w<CR>
 call plug#begin('~/vimfiles/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'morhetz/gruvbox' " ColorScheme
 "Plug 'scrooloose/nerdtree' " Filesystem explorer
 Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
+"Plug 'easymotion/vim-easymotion' " EasyMotion
 "Plug 'tpope/vim-commentary' " Use gcc to comment out a line
 "Plug 'vim-airline/vim-airline' "Show statusline at bottom
 "Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
@@ -210,15 +210,20 @@ Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
 "Plug 'airblade/vim-gitgutter' "Show git diff
 "Plug 'ntpeters/vim-better-whitespace' "Highlighting withspaces in normal mode
 "Plug 'Raimondi/delimitMate' "Automatic closing 'tag'
-"Plug 'vim-syntastic/syntastic' "Syntax checks"
+Plug 'vim-syntastic/syntastic' "Syntax checks"
 "Plug 'majutsushi/tagbar' "display tags in a separeted windows calling TagbarToggle
 "Plug 'sheerun/vim-polyglot' "Languages packs
 "Plug 'w0rp/ale' "Asynchronous linting/fixing
 "Plug 'SirVer/ultisnips' "snippets for vim
 "Plug 'fatih/vim-go' ,{'do': ':GoInstallBinaries'} "Go development Plugin
+
+" Comments plugins
+Plug 'tpope/vim-commentary'
+"Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
-nmap <A-j> ddp
+:nnoremap <A-k> <Up>ddp<Up>
+:nnoremap <A-j> ddp
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
