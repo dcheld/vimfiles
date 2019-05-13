@@ -20,6 +20,10 @@ nmap <cr> o<Esc>k
 nmap <s-cr> O<Esc>j
 imap <c-s> <Esc>:w<CR>
 nmap <c-s> :w<CR>
+:nnoremap <A-k> <Up>ddp<Up>
+:nnoremap <A-j> ddp
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
 
 " remap split navigation
 nnoremap <C-J> <C-W><C-J>
