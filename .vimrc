@@ -141,6 +141,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <C-Tab> <C-W>w
 
 " open splits in a more natural way:
 set splitbelow
@@ -207,7 +208,7 @@ Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
 "Plug 'tpope/vim-commentary' " Use gcc to comment out a line
 "Plug 'vim-airline/vim-airline' "Show statusline at bottom
 "Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
-"Plug 'tpope/vim-fugitive' "Git wrapper
+Plug 'tpope/vim-fugitive' "Git wrapper
 "Plug 'airblade/vim-gitgutter' "Show git diff
 "Plug 'ntpeters/vim-better-whitespace' "Highlighting withspaces in normal mode
 "Plug 'Raimondi/delimitMate' "Automatic closing 'tag'
@@ -242,8 +243,8 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 noremap <Leader>y "*y
-noremap <Leader>p "*p
 noremap <Leader>Y "+y
+noremap <Leader>p "*p
 noremap <Leader>P "+p
 noremap <Leader>d "_d
 noremap <Leader>D "_D
