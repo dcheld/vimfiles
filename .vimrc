@@ -1,5 +1,5 @@
 " Jump to a subject map for no-englesh keyboards
-:map go <C-]>
+map go <C-]>
 
 " Disable beep
 set noerrorbells visualbell t_vb=
@@ -91,7 +91,6 @@ let NERDTreeShowHidden=1
 let g:loaded_syntastic_typescript_tsc_checker = 1 "don't do syntax checking
 
 let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.vim/coffeeLintConfig.json"
-command -nargs=1 C CoffeeCompile | :<args>
 nmap <F8> :TagbarToggle<CR>
 if executable('coffeetags')
   let g:tagbar_type_coffee = {
@@ -141,7 +140,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <C-Tab> <C-W>w
+nnoremap <C-Tab> <C-W><C-W>
 
 " open splits in a more natural way:
 set splitbelow
@@ -200,32 +199,32 @@ imap <c-s> <Esc>:w<CR>
 nmap <c-s> :w<CR>
 
 call plug#begin('~/vimfiles/plugged')
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Filesystem explorer
 Plug 'morhetz/gruvbox' " ColorScheme
-"Plug 'scrooloose/nerdtree' " Filesystem explorer
 Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
+Plug 'tpope/vim-fugitive' "Git wrapper
+Plug 'vim-syntastic/syntastic' "Syntax checks"
+Plug 'tpope/vim-commentary'
+Plug 'PProvost/vim-ps1'
+Plug 'ctrlpvim/ctrlp.vim'
+" Comments plugins
+"Plug 'scrooloose/nerdtree' 
 "Plug 'easymotion/vim-easymotion' " EasyMotion
 "Plug 'tpope/vim-commentary' " Use gcc to comment out a line
 "Plug 'vim-airline/vim-airline' "Show statusline at bottom
 "Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
-Plug 'tpope/vim-fugitive' "Git wrapper
 "Plug 'airblade/vim-gitgutter' "Show git diff
 "Plug 'ntpeters/vim-better-whitespace' "Highlighting withspaces in normal mode
 "Plug 'Raimondi/delimitMate' "Automatic closing 'tag'
-Plug 'vim-syntastic/syntastic' "Syntax checks"
 "Plug 'majutsushi/tagbar' "display tags in a separeted windows calling TagbarToggle
 "Plug 'sheerun/vim-polyglot' "Languages packs
 "Plug 'w0rp/ale' "Asynchronous linting/fixing
 "Plug 'SirVer/ultisnips' "snippets for vim
 "Plug 'fatih/vim-go' ,{'do': ':GoInstallBinaries'} "Go development Plugin
-
-" Comments plugins
-Plug 'tpope/vim-commentary'
-"Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
-:nnoremap <A-k> <Up>ddp<Up>
-:nnoremap <A-j> ddp
+nnoremap <A-k> <Up>ddp<Up>
+nnoremap <A-j> ddp
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <C-t> :tabnew<CR>
@@ -242,9 +241,9 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-noremap <Leader>y "*y
-noremap <Leader>Y "+y
-noremap <Leader>p "*p
-noremap <Leader>P "+p
-noremap <Leader>d "_d
-noremap <Leader>D "_D
+noremap <Space>y "*y
+noremap <Space>Y "+y
+noremap <Space>p "*p
+noremap <Space>P "+p
+noremap <Space>d "_d
+noremap <Space>D "_D
