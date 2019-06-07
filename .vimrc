@@ -123,16 +123,16 @@ set wrapscan
 if has("win32")
   let g:slime_target = "tmux"
 endif
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#close_symbol = ''
-let g:airline#extensions#tabline#buffer_nr_format = 'b%s: '
-"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#fnamecollapse = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline#extensions#tabline#tab_nr_type = 1
+" let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#close_symbol = ''
+" let g:airline#extensions#tabline#buffer_nr_format = 'b%s: '
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#tabline#fnamecollapse = 1
 let g:airline_theme='dark'
 
 " remap split navigation
@@ -207,12 +207,12 @@ Plug 'vim-syntastic/syntastic' "Syntax checks"
 Plug 'tpope/vim-commentary'
 Plug 'PProvost/vim-ps1'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline' "Show statusline at bottom
+Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
 " Comments plugins
 "Plug 'scrooloose/nerdtree' 
 "Plug 'easymotion/vim-easymotion' " EasyMotion
 "Plug 'tpope/vim-commentary' " Use gcc to comment out a line
-"Plug 'vim-airline/vim-airline' "Show statusline at bottom
-"Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
 "Plug 'airblade/vim-gitgutter' "Show git diff
 "Plug 'ntpeters/vim-better-whitespace' "Highlighting withspaces in normal mode
 "Plug 'Raimondi/delimitMate' "Automatic closing 'tag'
@@ -225,7 +225,7 @@ call plug#end()
 
 nnoremap <A-k> <Up>ddp<Up>
 nnoremap <A-j> ddp
-nnoremap <Tab> gt
+" nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <C-t> :tabnew<CR>
 
