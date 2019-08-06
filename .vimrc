@@ -53,7 +53,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
-    set guifont=Source_Code_Pro:h11:cANSI:qDRAFT
+    set guifont=Source_Code_Pro_for_Powerline:h9:cANSI:qDRAFT
   endif
 endif
 
@@ -61,9 +61,9 @@ map <F2> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1
 
-:set guioptions+=m  "add menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
+set guioptions+=m  "add menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
 
 "function! Smart_TabComplete()
 "  let line = getline('.')                         " current line
