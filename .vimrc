@@ -60,6 +60,7 @@ endif
 map <F2> :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
 
 set guioptions+=m  "add menu bar
 set guioptions-=T  "remove toolbar
@@ -113,8 +114,8 @@ if filereadable(vimlocal)
   execute 'source '.vimlocal
 endif
 map <S-A-l> :NERDTreeFind<CR>
-nmap <Enter> o<Esc>k
-nmap <S-Enter> O<Esc>j
+nnoremap <C-CR> o<Esc>k
+nnoremap <C-S-CR> O<Esc>j
 au GUIEnter * simalt ~x
 nmap <F9> :mksession! <cr> " Quick write session with F9
 nmap <F10> :source Session.vim <cr> " And load session with F10
@@ -140,7 +141,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <C-Tab> <C-W><C-W>
 
 " open splits in a more natural way:
 set splitbelow
@@ -225,8 +225,8 @@ call plug#end()
 
 nnoremap <A-k> <Up>ddp<Up>
 nnoremap <A-j> ddp
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
+nnoremap <C-Tab> gt
+nnoremap <C-S-Tab> gT
 nnoremap <silent> <C-t> :tabnew<CR>
 
 " Abreviations to prevent miss typings like :W
@@ -247,3 +247,6 @@ noremap <Space>p "*p
 noremap <Space>P "+p
 noremap <Space>d "_d
 noremap <Space>D "_D
+
+map <leader>s _f,a<CR><Esc>==<leader>s
+

@@ -1,10 +1,10 @@
 " Based on @mislav post http://mislav.uniqpath.com/2011/12/vim-revisited/
+set showcmd                     " display incomplete commands
 set nocompatible                " choose no compatibility with legacy vi
-set noshowcmd                     " display incomplete commands
 
 "" Whitespace
 set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -13,17 +13,18 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
-nmap <cr> o<Esc>k
-nmap <s-cr> O<Esc>j
-imap <c-s> <Esc>:w<CR>
-nmap <c-s> :w<CR>
+nnoremap <C-CR> o<Esc>k
+nnoremap <C-S-CR> O<Esc>j
+imap <C-S> <Esc>:w<CR>
+nmap <C-S> :w<CR>
+
 nnoremap <A-k> <Up>ddp<Up>
 nnoremap <A-j> ddp
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
 
 " remap split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+map <leader>s _f,a<CR><Esc>==<leader>s
