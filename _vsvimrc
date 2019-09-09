@@ -28,3 +28,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 map <leader>s _f,a<CR><Esc>==<leader>s
+
+noremap <Space>y "*y
+noremap <Space>Y "+y
+noremap <Space>p "*p
+noremap <Space>P "+p
+noremap <Space>d "_d
+noremap <Space>D "_D

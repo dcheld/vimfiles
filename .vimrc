@@ -1,4 +1,5 @@
 " Jump to a subject map for no-englesh keyboards
+"
 map go <C-]>
 
 " Disable beep
@@ -195,8 +196,7 @@ set cmdheight=2
 " JK motions: Line motions
 "map <Leader>j <Plug>(easymotion-j)
 "map <Leader>k <Plug>(easymotion-k)
-imap <c-s> <Esc>:w<CR>
-nmap <c-s> :w<CR>
+map <c-s> <Esc>:w<CR>
 
 call plug#begin('~/vimfiles/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Filesystem explorer
@@ -209,9 +209,9 @@ Plug 'PProvost/vim-ps1'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline' "Show statusline at bottom
 Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
+Plug 'tpope/vim-surround' "Surround.vim is all about 'surroundings': parentheses, brackets, quotes, XML tags, and more
+Plug 'easymotion/vim-easymotion' " EasyMotion
 " Comments plugins
-"Plug 'scrooloose/nerdtree' 
-"Plug 'easymotion/vim-easymotion' " EasyMotion
 "Plug 'tpope/vim-commentary' " Use gcc to comment out a line
 "Plug 'airblade/vim-gitgutter' "Show git diff
 "Plug 'ntpeters/vim-better-whitespace' "Highlighting withspaces in normal mode
@@ -249,4 +249,4 @@ noremap <Space>d "_d
 noremap <Space>D "_D
 
 map <leader>s _f,a<CR><Esc>==<leader>s
-
+let python_highlight_all = 1
