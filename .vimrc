@@ -13,6 +13,8 @@ syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
+set display=truncate
+set ruler
 
 "" Whitespace
 set nowrap                      " don't wrap lines
@@ -196,8 +198,9 @@ set cmdheight=2
 " JK motions: Line motions
 "map <Leader>j <Plug>(easymotion-j)
 "map <Leader>k <Plug>(easymotion-k)
-nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>
+noremap <silent> <c-s> :w<CR>
+inoremap <silent> <c-s> <c-o>:w<CR>
+vnoremap <silent> <c-s> <c-c>:w<CR>
 
 call plug#begin('~/vimfiles/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Filesystem explorer

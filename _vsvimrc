@@ -12,10 +12,13 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
+
 nnoremap <C-CR> o<Esc>k
 nnoremap <C-S-CR> O<Esc>j
-imap <C-S> <Esc>:w<CR>
-nmap <C-S> :w<CR>
+
+noremap <silent> <c-s> :update<CR>
+inoremap <silent> <c-s> <c-o>:update<CR>
+vnoremap <silent> <c-s> <c-c>:update<CR>
 
 nnoremap <A-k> <Up>ddp<Up>
 nnoremap <A-j> ddp
