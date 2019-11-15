@@ -196,7 +196,8 @@ set cmdheight=2
 " JK motions: Line motions
 "map <Leader>j <Plug>(easymotion-j)
 "map <Leader>k <Plug>(easymotion-k)
-map <c-s> <Esc>:w<CR>
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>
 
 call plug#begin('~/vimfiles/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Filesystem explorer
@@ -250,3 +251,8 @@ noremap <Space>D "_D
 
 map <leader>s _f,a<CR><Esc>==<leader>s
 let python_highlight_all = 1
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
