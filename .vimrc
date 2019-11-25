@@ -215,6 +215,7 @@ Plug 'vim-airline/vim-airline' "Show statusline at bottom
 Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
 Plug 'tpope/vim-surround' "Surround.vim is all about 'surroundings': parentheses, brackets, quotes, XML tags, and more
 Plug 'easymotion/vim-easymotion' " EasyMotion
+Plug 'prettier/vim-prettier', { 'do': 'npm install' } " post install (yarn install | npm install)
 " Comments plugins
 "Plug 'tpope/vim-commentary' " Use gcc to comment out a line
 "Plug 'airblade/vim-gitgutter' "Show git diff
