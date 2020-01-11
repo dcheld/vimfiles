@@ -17,8 +17,8 @@ nnoremap <C-CR> o<Esc>k
 nnoremap <C-S-CR> O<Esc>j
 
 noremap <silent> <c-s> :w<CR>
-inoremap <silent> <c-s> <c-o>:w<CR>
-vnoremap <silent> <c-s> <ESC>:w<CR>
+inoremap <silent> <c-s> <Esc>:w<CR>
+vnoremap <silent> <c-s> <Esc>:w<CR>
 
 nnoremap <A-k> <Up>ddp<Up>
 nnoremap <A-j> ddp

@@ -18,7 +18,7 @@ set ruler
 
 "" Whitespace
 set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -216,6 +216,7 @@ Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
 Plug 'tpope/vim-surround' "Surround.vim is all about 'surroundings': parentheses, brackets, quotes, XML tags, and more
 Plug 'easymotion/vim-easymotion' " EasyMotion
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } " post install (yarn install | npm install)
+Plug 'twinside/vim-haskellconceal' 
 " Comments plugins
 "Plug 'tpope/vim-commentary' " Use gcc to comment out a line
 "Plug 'airblade/vim-gitgutter' "Show git diff
