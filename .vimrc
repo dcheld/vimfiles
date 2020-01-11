@@ -200,7 +200,7 @@ set cmdheight=2
 "map <Leader>k <Plug>(easymotion-k)
 noremap <silent> <c-s> :w<CR>
 inoremap <silent> <c-s> <c-o>:w<CR>
-vnoremap <silent> <c-s> <c-c>:w<CR>
+vnoremap <silent> <c-s> <>:w<CR>
 
 call plug#begin('~/vimfiles/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Filesystem explorer
@@ -252,6 +252,8 @@ noremap <Space>p "*p
 noremap <Space>P "+p
 noremap <Space>d "_d
 noremap <Space>D "_D
+inoremap <c-v> <c-o>"+p
+inoremap <c-z> <c-o>u
 
 map <leader>s _f,a<CR><Esc>==<leader>s
 let python_highlight_all = 1
@@ -260,3 +262,4 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+
