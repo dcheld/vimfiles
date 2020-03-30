@@ -2,6 +2,7 @@
 "
 map go <C-]>
 
+
 " Disable beep
 set noerrorbells visualbell t_vb=
 if has('autocmd')
@@ -198,9 +199,9 @@ set cmdheight=2
 " JK motions: Line motions
 "map <Leader>j <Plug>(easymotion-j)
 "map <Leader>k <Plug>(easymotion-k)
-noremap <silent> <c-s> :w<CR>
-inoremap <silent> <c-s> <c-o>:w<CR>
-vnoremap <silent> <c-s> <>:w<CR>
+noremap <silent> <leader>w :w<CR>
+inoremap <silent> <leader>w <c-o>:w<CR>
+vnoremap <silent> <leader>w <>:w<CR>
 
 call plug#begin('~/vimfiles/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Filesystem explorer
@@ -247,12 +248,12 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-noremap <Space>y "*y
-noremap <Space>Y "+y
-noremap <Space>p "*p
-noremap <Space>P "+p
-noremap <Space>d "_d
-noremap <Space>D "_D
+noremap <leader>y "*y
+noremap <leader>Y "+y
+noremap <leader>p "*p
+noremap <leader>P "+p
+noremap <leader>d "_d
+noremap <leader>D "_D
 inoremap <c-v> <c-o>"+p
 inoremap <c-z> <c-o>u
 
