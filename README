@@ -1,4 +1,4 @@
-Giovanni Bassi's vimfiles.
+Based on Giovanni Bassi's vimfiles.
 
 These are my personal vimfiles. Since I'm still learning to use vim, I advise you not to use it for anything :)
 
@@ -8,12 +8,12 @@ Installation instructions (Linux):
 - git clone https://github.com/dcheld/vimfiles.git ~/.vim
 - echo "source ~/.vim/.vimrc" > ~/.vimrc
 - cd ~/.vim
-- git submodule update --init
+- Run in vim :PlugInstall
 
 Installation instructions (Windows, no Powershell):
 - git clone https://github.com/dcheld/vimfiles.git ~/vimfiles
 - echo "source $($($env:HOME).Replace('\', '/'))/vimfiles/.vimrc" > ~/_vimrc
 - cd ~/.vim
-- git submodule update --init
+- Run in vim :PlugInstall
 
 This is a fork from Rafael Rosa Fu's vimfiles. Check out https://github.com/rafaelrosafu/vimfiles for his latest updates.
