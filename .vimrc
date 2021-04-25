@@ -2,7 +2,6 @@
 "
 map go <C-]>
 
-
 " Disable beep
 set noerrorbells visualbell t_vb=
 if has('autocmd')
@@ -70,54 +69,12 @@ set guioptions+=m  "add menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 
-"function! Smart_TabComplete()
-"  let line = getline('.')                         " current line
-"
-"  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
-"                                                  " line to one character right
-"                                                  " of the cursor
-"  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-"  if (strlen(substr)==0)                          " nothing to match on empty string
-"    return "\<tab>"
-"  endif
-"  let has_period = match(substr, '\.') != -1      " position of period, if any
-"  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-"  if (!has_period && !has_slash)
-"    return "\<C-X>\<C-P>"                         " existing text matching
-"  elseif ( has_slash )
-"    return "\<C-X>\<C-F>"                         " file matching
-"  else
-"    return "\<C-X>\<C-O>"                         " plugin matching
-"  endif
-"endfunction
-
-"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
-let g:loaded_syntastic_typescript_tsc_checker = 1 "don't do syntax checking
-
-let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.vim/coffeeLintConfig.json"
-nmap <F8> :TagbarToggle<CR>
-if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '--include-vars',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
-endif
-
 let vimlocal = expand("%:p:h") . "/.vimrc.local"
 if filereadable(vimlocal)
   execute 'source '.vimlocal
 endif
-map <S-A-l> :NERDTreeFind<CR>
+
+map <leader>l :NERDTreeFind<CR>
 nnoremap <C-CR> o<Esc>k
 nnoremap <C-S-CR> O<Esc>j
 au GUIEnter * simalt ~x
@@ -153,16 +110,6 @@ set splitright
 set relativenumber
 set diffopt=filler,vertical
 au BufReadPost fugitive:* set bufhidden=delete
-fun! QuitPrompt(cmd)
-  if tabpagenr("$") == 1 && winnr("$") == 1
-    let choice = confirm("Close?", "&yes\n&no", 1)
-    if choice == 1 | return a:cmd | endif
-    return ""
-  else | return a:cmd | endif
-endfun
-cnoreabbrev <expr> q getcmdtype() == ":" && getcmdline() == 'q' ? QuitPrompt(getcmdline()) : 'q'
-cnoreabbrev <expr> wq getcmdtype() == ":" && getcmdline() == 'wq' ? QuitPrompt(getcmdline()) : 'wq'
-cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? QuitPrompt(getcmdline()) : 'x'
 
 " highlight trailing white spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -177,7 +124,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabClosePreviewOnPopupClose = 1
 set completeopt=longest,menuone,preview
 " this setting controls how long to wait (in ms) before fetching type / symbol information.
-set updatetime=500
+set updatetime=300
 " Remove 'Press Enter to continue' message when type information is longer than one line.
 set cmdheight=2
 " Enable snippet completion, requires completeopt-=preview
@@ -197,14 +144,11 @@ set cmdheight=2
 " Turn on case insensitive feature
 "let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
-"map <Leader>j <Plug>(easymotion-j)
-"map <Leader>k <Plug>(easymotion-k)
-noremap <silent> <leader>w :w<CR>
-inoremap <silent> <leader>w <c-o>:w<CR>
-vnoremap <silent> <leader>w <>:w<CR>
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
 
 call plug#begin('~/vimfiles/plugged')
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Filesystem explorer
+Plug 'scrooloose/nerdtree' " Filesystem explorer
 Plug 'morhetz/gruvbox' " ColorScheme
 Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
 Plug 'tpope/vim-fugitive' "Git wrapper
@@ -216,18 +160,7 @@ Plug 'vim-airline/vim-airline' "Show statusline at bottom
 Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
 Plug 'tpope/vim-surround' "Surround.vim is all about 'surroundings': parentheses, brackets, quotes, XML tags, and more
 Plug 'easymotion/vim-easymotion' " EasyMotion
-Plug 'prettier/vim-prettier', { 'do': 'npm install' } " post install (yarn install | npm install)
-Plug 'twinside/vim-haskellconceal' 
-" Comments plugins
-"Plug 'tpope/vim-commentary' " Use gcc to comment out a line
-"Plug 'airblade/vim-gitgutter' "Show git diff
-"Plug 'ntpeters/vim-better-whitespace' "Highlighting withspaces in normal mode
-"Plug 'Raimondi/delimitMate' "Automatic closing 'tag'
-"Plug 'majutsushi/tagbar' "display tags in a separeted windows calling TagbarToggle
-"Plug 'sheerun/vim-polyglot' "Languages packs
-"Plug 'w0rp/ale' "Asynchronous linting/fixing
-"Plug 'SirVer/ultisnips' "snippets for vim
-"Plug 'fatih/vim-go' ,{'do': ':GoInstallBinaries'} "Go development Plugin
+Plug 'twinside/vim-haskellconceal'
 call plug#end()
 
 nnoremap <A-k> <Up>ddp<Up>
@@ -236,7 +169,7 @@ nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
 nnoremap <silent> <C-t> :tabnew<CR>
 
-" Abreviations to prevent miss typings like :W
+" Abreviations to prevent miss typings like
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
@@ -248,20 +181,17 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-noremap <leader>y "*y
-noremap <leader>Y "+y
-noremap <leader>p "*p
-noremap <leader>P "+p
-noremap <leader>d "_d
-noremap <leader>D "_D
+" Put, delete and yank without use registers
+nnoremap <space> <Nop>
+nnoremap <space>y "*y
+nnoremap <space>Y "+y
+nnoremap <space>p "*p
+nnoremap <space>P "+p
+nnoremap <space>d "_d
+nnoremap <space>D "_D
+nnoremap <silent> <space>w :w<CR>
 inoremap <c-v> <c-o>"+p
 inoremap <c-z> <c-o>u
 
-map <leader>s _f,a<CR><Esc>==<leader>s
-let python_highlight_all = 1
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
-
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>  " Remove space in end of line
+nnoremap <space>s _f,a<CR><Esc>==<leader>s " Break current line in multiple lines with separator ,
