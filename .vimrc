@@ -1,6 +1,8 @@
 " Jump to a subject map for no-englesh keyboards
 "
 map go <C-]>
+nnoremap <C-CR> o<Esc>k
+nnoremap <C-S-CR> O<Esc>j
 
 " Disable beep
 set noerrorbells visualbell t_vb=
@@ -61,7 +63,7 @@ if has("gui_running")
 endif
 
 map <F2> :NERDTreeToggle<CR>
-
+nnoremap <space>l :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 
@@ -74,9 +76,6 @@ if filereadable(vimlocal)
   execute 'source '.vimlocal
 endif
 
-map <leader>l :NERDTreeFind<CR>
-nnoremap <C-CR> o<Esc>k
-nnoremap <C-S-CR> O<Esc>j
 au GUIEnter * simalt ~x
 nmap <F9> :mksession! <cr> " Quick write session with F9
 nmap <F10> :source Session.vim <cr> " And load session with F10
