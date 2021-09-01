@@ -42,12 +42,9 @@ set wildignore+=.git            " ignore these extensions on autocomplete
 
 set hidden                      " change buffers without warnings even when there are unsaved changes
 
-set backupdir=/tmp              " directory used to save backup files
-set directory=/tmp              " directory used to save swap files
-if has("win32")
-  set backupdir=$TEMP
-  set directory=$TEMP
-endif
+set backupdir=/tmp,$TEMP//,.    " directory used to save backup files
+set directory=/tmp,$TEMP//,.    " directory used to save swap files
+
 set nobackup
 set nowritebackup
 
