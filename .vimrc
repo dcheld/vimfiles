@@ -1,6 +1,5 @@
 " Jump to a subject map for no-englesh keyboards
 "
-map go <C-]>
 nnoremap <C-CR> o<Esc>k
 nnoremap <C-S-CR> O<Esc>j
 
@@ -80,6 +79,7 @@ set switchbuf+=usetab,newtab
 set wrapscan
 if has("win32")
   let g:slime_target = "tmux"
+  map go <C-]>
 endif
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
