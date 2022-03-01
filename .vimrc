@@ -16,6 +16,7 @@ set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 set display=truncate
 set ruler
+set mouse=v
 
 "" Whitespace
 set nowrap                      " don't wrap lines
@@ -178,14 +179,14 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 " Put, delete and yank without use registers
-nnoremap <space> <Nop>
-nnoremap <space>y "*y
-nnoremap <space>Y "+y
-nnoremap <space>p "*p
-nnoremap <space>P "+p
-nnoremap <space>d "_d
-nnoremap <space>D "_D
-nnoremap <silent> <space>w :w<CR>
+noremap <leader> <Nop>
+noremap <leader>y "*y
+noremap <leader>Y "+y
+noremap <leader>p "*p
+noremap <leader>P "+p
+noremap <leader>d "_d
+noremap <leader>D "_D
+noremap <silent> <space>w :w<CR>
 inoremap <c-v> <c-o>"+p
 inoremap <c-z> <c-o>u
 
