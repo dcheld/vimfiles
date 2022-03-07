@@ -11,7 +11,7 @@ Installation instructions (Linux):
 - Run in vim :PlugInstall
 
 Installation instructions (Windows, no Powershell):
-- git clone https://github.com/dcheld/vimfiles.git ~/vimfiles
+- git clone https://github.com/dcheld/vimfiles.git "$env:HOME\vimfiles"
 - echo "source $($($env:HOME).Replace('\', '/'))/vimfiles/.vimrc" > ~/_vimrc
 - cd ~/.vim
 - Run in vim :PlugInstall
