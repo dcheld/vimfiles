@@ -144,12 +144,27 @@ set cmdheight=2
 " map <Leader>j <Plug>(easymotion-j)
 " map <Leader>k <Plug>(easymotion-k)
 
-call plug#begin('~/vimfiles/plugged')
-Plug 'scrooloose/nerdtree' " Filesystem explorer
+if has('unix')
+    let vimHome = '~/.vim'
+elseif has('win32')
+    let vimHome = $USERPROFILE . "\\vimfiles"
+endif
+
+if empty(glob(vimHome . '/autoload/plug.vim'))
+    if has('unix')
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    elseif has('win32')
+        execute 'silent !powershell -noprofile -c "Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | New-Item $env:USERPROFILE/vimfiles/autoload/plug.vim -Force"'
+    endif
+endif
+
+
+call plug#begin(vimHome . '/plugged')
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " Filesystem explorer
 Plug 'morhetz/gruvbox' " ColorScheme
 Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
 Plug 'tpope/vim-fugitive' "Git wrapper
-Plug 'vim-syntastic/syntastic' "Syntax checks"
+Plug 'vim-syntastic/syntastic' "Syntax checks
 Plug 'tpope/vim-commentary'
 Plug 'PProvost/vim-ps1'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -157,7 +172,7 @@ Plug 'vim-airline/vim-airline' "Show statusline at bottom
 Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
 Plug 'tpope/vim-surround' "Surround.vim is all about 'surroundings': parentheses, brackets, quotes, XML tags, and more
 Plug 'easymotion/vim-easymotion' " EasyMotion
-Plug 'twinside/vim-haskellconceal'
+Plug 'twinside/vim-haskellconceal', { 'for': 'haskell' } " Haskell
 call plug#end()
 
 nnoremap <A-k> <Up>ddp<Up>
