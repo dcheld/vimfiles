@@ -12,7 +12,7 @@ Installation instructions (Linux):
 
 Installation instructions (Windows, no Powershell):
 - git clone https://github.com/dcheld/vimfiles.git "$env:HOME\vimfiles"
-- echo "source $($($env:HOME).Replace('\', '/'))/vimfiles/.vimrc" > ~/_vimrc
+- echo "source $($env:HOME.Replace('\', '/'))/vimfiles/.vimrc" > ~/_vimrc
 - cd ~/.vim
 - Run in vim :PlugInstall
 
