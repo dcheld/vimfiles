@@ -1,12 +1,12 @@
 " Based on @mislav post http://mislav.uniqpath.com/2011/12/vim-revisited/
 set showcmd                     " display incomplete commands
-set nocompatible                " choose no compatibility with legacy vi
 
 "" Whitespace
 set nowrap                      " don't wrap lines
 set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
+let mapleader = " "
 
 "" Searching
 set incsearch                   " incremental searching
@@ -16,9 +16,9 @@ set smartcase                   " ... unless they contain at least one capital l
 nnoremap <C-CR> o<Esc>k
 nnoremap <C-S-CR> O<Esc>j
 
-noremap <silent> <c-s> :w<CR>
-inoremap <silent> <c-s> <Esc>:w<CR>
-vnoremap <silent> <c-s> <Esc>:w<CR>
+noremap <c-s> :w<CR>
+inoremap <c-s> <Esc>:w<CR>
+vnoremap <c-s> <Esc>:w<CR>
 
 nnoremap <A-k> <Up>ddp<Up>
 nnoremap <A-j> ddp
@@ -31,10 +31,11 @@ nnoremap <C-H> <C-W><C-H>
 
 map <leader>s _f,a<CR><Esc>==<leader>s
 
-noremap <Space>y "*y
-noremap <Space>Y "+y
-noremap <Space>p "*p
-noremap <Space>P "+p
-noremap <Space>d "_d
-noremap <Space>D "_D
+noremap <leader>y "*y
+noremap <leader>Y "+y
+noremap <leader>p "*p
+noremap <leader>P "+p
+noremap <leader>d "_d
+noremap <leader>D "_D
 nnoremap <C-S-F5> :%s/\s\+$//e<CR>
+

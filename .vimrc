@@ -23,6 +23,7 @@ set nowrap                      " don't wrap lines
 set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
+let mapleader = " "
 
 "" Searching
 set hlsearch                    " highlight matches
@@ -60,7 +61,7 @@ if has("gui_running")
 endif
 
 map <F2> :NERDTreeToggle<CR>
-nnoremap <space>l :NERDTreeFind<CR>
+nnoremap <leader>l :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 
