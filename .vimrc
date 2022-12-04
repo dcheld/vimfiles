@@ -16,14 +16,14 @@ set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 set display=truncate
 set ruler
-set mouse=v
+set mouse=a
 
 "" Whitespace
 set nowrap                      " don't wrap lines
 set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
-let mapleader = " "
+" let mapleader = " "
 
 "" Searching
 set hlsearch                    " highlight matches
@@ -161,9 +161,9 @@ endif
 
 
 call plug#begin(vimHome . '/plugged')
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " Filesystem explorer
-Plug 'morhetz/gruvbox' " ColorScheme
+Plug 'scrooloose/nerdtree' " Filesystem explorer
 Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
+Plug 'morhetz/gruvbox' " ColorScheme
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'vim-syntastic/syntastic' "Syntax checks
 Plug 'tpope/vim-commentary'
@@ -195,16 +195,20 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 " Put, delete and yank without use registers
-noremap <leader> <Nop>
-noremap <leader>y "*y
-noremap <leader>Y "+y
-noremap <leader>p "*p
-noremap <leader>P "+p
-noremap <leader>d "_d
-noremap <leader>D "_D
+noremap <space> <Nop>
+noremap <silent> <space>y "+y
+noremap <silent> <space>p "+p
+noremap <silent> <space>d "_d
+noremap <silent> <space>D "_D
 noremap <silent> <space>w :w<CR>
 inoremap <c-v> <c-o>"+p
 inoremap <c-z> <c-o>u
 
+" disable
+" noremap <leader>y "*y
+" noremap <leader>p "*p
+
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>  " Remove space in end of line
 nnoremap <space>s _f,a<CR><Esc>==<leader>s " Break current line in multiple lines with separator ,
+
+
