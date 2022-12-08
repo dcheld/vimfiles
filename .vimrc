@@ -201,8 +201,10 @@ noremap <silent> <space>p "+p
 noremap <silent> <space>d "_d
 noremap <silent> <space>D "_D
 noremap <silent> <space>w :w<CR>
-inoremap <c-v> <c-o>"+p
+
+inoremap <C-R> <C-G>u<C-R>
 inoremap <c-z> <c-o>u
+inoremap <c-v> <c-r>+p
 
 " disable
 " noremap <leader>y "*y
