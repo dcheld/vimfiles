@@ -55,7 +55,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
-    set guifont=Source_Code_Pro_for_Powerline:h9:cANSI:qDRAFT
+    set guifont=Source_Code_Pro:h10
   endif
 endif
 
@@ -158,8 +158,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'voldikss/vim-floaterm'
 call plug#end()
 
-colorscheme railscasts          " set colorscheme
-
+colorscheme railscasts          " set colorscheme */
 
 " Abreviations to prevent miss typings like
 cnoreabbrev W! w!
