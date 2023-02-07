@@ -17,7 +17,6 @@ filetype plugin indent on       " load file type plugins + indentation
 set display=truncate
 set ruler
 set mouse=a
-set ttymouse=xterm2
 set timeoutlen=1000 ttimeoutlen=0 "Remove dalay in Escape
 
 "" Whitespace
@@ -204,15 +203,8 @@ noremap <silent> <space>d "_d
 noremap <silent> <space>D "_D
 noremap <silent> <space>w :w<CR>
 
-inoremap <C-R> <C-G>u<C-R>
 inoremap <c-z> <c-o>u
-inoremap <c-v> <c-r>+p
-
-" disable
-" noremap <leader>y "*y
-" noremap <leader>p "*p
+inoremap <c-v> <c-r>+
 
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>  " Remove space in end of line
 nnoremap <space>s _f,a<CR><Esc>==<leader>s " Break current line in multiple lines with separator ,
-
-
