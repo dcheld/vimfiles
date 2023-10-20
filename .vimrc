@@ -24,7 +24,6 @@ set nowrap                      " don't wrap lines
 set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
-" let mapleader = " "
 
 "" Searching
 set hlsearch                    " highlight matches
@@ -36,7 +35,6 @@ set smartcase                   " ... unless they contain at least one capital l
 set ls=2                        " always show status bar
 set number                      " show line numbers
 set cursorline                  " display a marker on current line
-colorscheme railscasts          " set colorscheme
 
 set completeopt=menuone,longest,preview " simple autocomplete for anything
 set wildmode=list:longest,full  " autocomplete for paths and files
@@ -61,8 +59,8 @@ if has("gui_running")
   endif
 endif
 
-map <F2> :NERDTreeToggle<CR>
-nnoremap <leader>l :NERDTreeFind<CR>
+noremap <space>e :NERDTreeToggle<CR>
+nmap <space>l :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 
@@ -102,6 +100,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap <silent> <C-t> :tabnew<CR>
+
 " open splits in a more natural way:
 set splitbelow
 set splitright
@@ -126,25 +126,6 @@ set completeopt=longest,menuone,preview
 set updatetime=300
 " Remove 'Press Enter to continue' message when type information is longer than one line.
 set cmdheight=2
-" Enable snippet completion, requires completeopt-=preview
-" would need to instal ultisnips, which could conflict with other snippets plugins
-"let g:OmniSharp_want_snippet=1
-
-
-" Easymotion config:
-" let g:EasyMotion_do_mapping = 0 " Disable default mappings
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-" nmap s <Plug>(easymotion-overwin-f)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-" nmap s <Plug>(easymotion-overwin-f2)
-" Turn on case insensitive feature
-"let g:EasyMotion_smartcase = 1
-" JK motions: Line motions
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
 
 if has('unix')
     let vimHome = '~/.vim'
@@ -160,7 +141,6 @@ if empty(glob(vimHome . '/autoload/plug.vim'))
     endif
 endif
 
-
 call plug#begin(vimHome . '/plugged')
 Plug 'scrooloose/nerdtree' " Filesystem explorer
 Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
@@ -168,20 +148,18 @@ Plug 'morhetz/gruvbox' " ColorScheme
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'vim-syntastic/syntastic' "Syntax checks
 Plug 'tpope/vim-commentary'
-Plug 'PProvost/vim-ps1'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline' "Show statusline at bottom
 Plug 'vim-airline/vim-airline-themes' "Themes for vim-airline
 Plug 'tpope/vim-surround' "Surround.vim is all about 'surroundings': parentheses, brackets, quotes, XML tags, and more
 Plug 'easymotion/vim-easymotion' " EasyMotion
-Plug 'twinside/vim-haskellconceal', { 'for': 'haskell' } " Haskell
+Plug 'jpo/vim-railscasts-theme' " Raislcasts colorschema
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
-nnoremap <A-k> <Up>ddp<Up>
-nnoremap <A-j> ddp
-nnoremap <C-Tab> gt
-nnoremap <C-S-Tab> gT
-nnoremap <silent> <C-t> :tabnew<CR>
+colorscheme railscasts          " set colorscheme
+
 
 " Abreviations to prevent miss typings like
 cnoreabbrev W! w!
@@ -199,12 +177,19 @@ cnoreabbrev Qall qall
 noremap <space> <Nop>
 noremap <silent> <space>y "+y
 noremap <silent> <space>p "+p
+noremap <silent> <space>P "*p
 noremap <silent> <space>d "_d
 noremap <silent> <space>D "_D
 noremap <silent> <space>w :w<CR>
 
+" Configuration example
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
+ 
 inoremap <c-z> <c-o>u
 inoremap <c-v> <c-r>+
 
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>  " Remove space in end of line
+nnoremap <space>c :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>  " Remove space in end of line
 nnoremap <space>s _f,a<CR><Esc>==<leader>s " Break current line in multiple lines with separator ,
