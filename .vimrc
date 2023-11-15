@@ -111,12 +111,14 @@ set diffopt=filler,vertical
 au BufReadPost fugitive:* set bufhidden=delete
 
 " highlight trailing white spaces:
-highlight ExtraWhitespace ctermbg=red guibg=red
+hi CursorLine ctermbg=236
+highlight ExtraWhitespace ctermbg=green guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+highlight Normal ctermbg=black
 
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
