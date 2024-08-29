@@ -57,6 +57,8 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=Source_Code_Pro:h10
   endif
+else
+  autocmd GUIEnter * simalt ~x
 endif
 
 noremap <space>e :NERDTreeToggle<CR>
@@ -73,7 +75,6 @@ if filereadable(vimlocal)
   execute 'source '.vimlocal
 endif
 
-au GUIEnter * simalt ~x
 nmap <F9> :mksession! <cr> " Quick write session with F9
 nmap <F10> :source Session.vim <cr> " And load session with F10
 set switchbuf+=usetab,newtab
