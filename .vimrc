@@ -17,6 +17,7 @@ filetype plugin indent on       " load file type plugins + indentation
 set display=truncate
 set ruler
 set mouse=a
+set ttymouse=xterm2
 set timeoutlen=1000 ttimeoutlen=0 "Remove dalay in Escape
 
 "" Whitespace
