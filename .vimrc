@@ -22,8 +22,6 @@ if $TMUX != ''
     set ttymouse=xterm2
 endif
 
-set timeoutlen=1000 ttimeoutlen=0 "Remove dalay in Escape
-
 "" Whitespace
 set nowrap                      " don't wrap lines
 set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
@@ -154,7 +152,7 @@ Plug 'scrooloose/nerdtree' " Filesystem explorer
 Plug 'jistr/vim-nerdtree-tabs' " NERDtree and tabs together
 Plug 'morhetz/gruvbox' " ColorScheme
 Plug 'tpope/vim-fugitive' "Git wrapper
-Plug 'vim-syntastic/syntastic' "Syntax checks
+Plug 'dense-analysis/ale' "Syntax checks
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline' "Show statusline at bottom
